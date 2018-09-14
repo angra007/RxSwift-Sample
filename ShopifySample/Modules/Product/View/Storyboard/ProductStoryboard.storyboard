@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MgP-OE-qsg">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Product Tag List View Controller-->
+        <scene sceneID="QAl-MB-uHJ">
+            <objects>
+                <viewController storyboardIdentifier="ProductListVC" id="VPx-ii-qTQ" customClass="ProductTagListViewController" customModule="ShopifySample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N3c-hU-zAU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Ew-eqJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductListTableViewCell" id="Boj-XG-HsE" customClass="ProductListTableViewCell" customModule="ShopifySample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Boj-XG-HsE" id="Ulx-lZ-vYL">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEc-Gz-a7L">
+                                                    <rect key="frame" x="16" y="7.5" width="42" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="DEc-Gz-a7L" secondAttribute="bottom" constant="8" id="Tsc-aT-OUt"/>
+                                                <constraint firstItem="DEc-Gz-a7L" firstAttribute="top" secondItem="Ulx-lZ-vYL" secondAttribute="top" constant="8" id="hkt-mF-wPx"/>
+                                                <constraint firstItem="DEc-Gz-a7L" firstAttribute="leading" secondItem="Ulx-lZ-vYL" secondAttribute="leading" constant="16" id="mUy-Wi-Xhe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productTag" destination="DEc-Gz-a7L" id="V3d-6p-aZ4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Oqs-Ya-Pmw" firstAttribute="bottom" secondItem="bL2-Ew-eqJ" secondAttribute="bottom" id="IhL-8l-ADf"/>
+                            <constraint firstItem="Oqs-Ya-Pmw" firstAttribute="trailing" secondItem="bL2-Ew-eqJ" secondAttribute="trailing" id="cEq-pl-0Le"/>
+                            <constraint firstItem="bL2-Ew-eqJ" firstAttribute="top" secondItem="Oqs-Ya-Pmw" secondAttribute="top" id="fFX-9q-0NC"/>
+                            <constraint firstItem="bL2-Ew-eqJ" firstAttribute="leading" secondItem="Oqs-Ya-Pmw" secondAttribute="leading" id="tOc-1B-ToH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oqs-Ya-Pmw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gmf-PD-mbV"/>
+                    <connections>
+                        <outlet property="tableView" destination="bL2-Ew-eqJ" id="qHc-oX-kJj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W38-Jj-c5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="154.27286356821591"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="bup-cf-RCT">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailVC" id="QGU-nq-75k" customClass="ProductDetailViewController" customModule="ShopifySample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hkb-xh-kWY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mKd-CR-JW6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozU-kS-HnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368.8" y="153.37331334332833"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i8q-qF-Tvd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MgP-OE-qsg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wHl-Iq-rcb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VPx-ii-qTQ" kind="relationship" relationship="rootViewController" id="epF-3M-s1E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hph-5c-phw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231.19999999999999" y="154.27286356821591"/>
+        </scene>
+    </scenes>
+</document>
