@@ -15,24 +15,27 @@ class ProductTagListViewController: ParentViewController {
     
     private var productViewModel : ProductViewModel = ProductViewModel ()
     
-    let disposeBag = DisposeBag ()
+    private let disposeBag = DisposeBag ()
     
     private func setupTableView () {
-        productViewModel.datasourceObserver.asObservable().bind(to: tableView.rx.items(cellIdentifier: ProductListTableViewCell.resueIdentifier)) {
+        productViewModel.tagDatasourceObserver.asObservable().bind(to: tableView.rx.items(cellIdentifier: ProductTagTableViewCell.resueIdentifier)) {
             _, item, cell in
-            if let cellToUse = cell as? ProductListTableViewCell {
-                cellToUse.productTag.text = item.tags
+            if let cellToUse = cell as? ProductTagTableViewCell {
+                cellToUse.productTag.text = item
                 cellToUse.accessoryType = .disclosureIndicator
             }
             }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(Product.self).subscribe(onNext: { [weak self](product) in
-            
-            let productDetail = UIStoryboard.initViewController(withIdentifier: .productDetail) as! ProductDetailViewController
-            productDetail.product = product
-            self?.navigationController?.pushViewController(productDetail, animated: true)
-            
-        }).disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] indexPath in
+                let productDetail = UIStoryboard.initViewController(withIdentifier: .productDetail) as! ProductListViewController
+                productDetail.productViewModel = self.productViewModel
+                productDetail.tag = self.productViewModel.getTag(atIndex: indexPath.row)
+                self.navigationController?.pushViewController(productDetail, animated: true)
+            })
+            .disposed(by: disposeBag)
+
     }
     
     private func setupObservers () {

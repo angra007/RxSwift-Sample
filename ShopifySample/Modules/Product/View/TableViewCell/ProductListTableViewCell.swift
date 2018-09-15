@@ -7,19 +7,27 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class ProductListTableViewCell: UITableViewCell {
 
+    private var varient : Variants!
     
-    class var resueIdentifier : String {
+    class var reuseIdentifier : String {
         get {
             return "ProductListTableViewCell"
         }
     }
     
-    @IBOutlet weak var productTag: UILabel!
+    @IBOutlet weak var productTitleLabel: UILabel!
+    @IBOutlet weak var inventoryQuantityLabel: UILabel!
+    
+    func bind (withVarient varient: Variants) {
+        self.varient = varient
+        self.productTitleLabel.text = self.varient.title
+        self.inventoryQuantityLabel.text = "\(self.varient.inventory_quantity)"
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
